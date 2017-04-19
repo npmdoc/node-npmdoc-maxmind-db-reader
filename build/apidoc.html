@@ -126,15 +126,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.maxmind-db-reader.toString">
-            function <span class="apidocSignatureSpan">maxmind-db-reader.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">maxmind-db-reader.</span>Decoder.prototype</span>
 
         </li>
@@ -641,45 +632,6 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.maxmind-db-reader.open">module maxmind-db-reader.open</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.maxmind-db-reader.open.open">
-            function <span class="apidocSignatureSpan">maxmind-db-reader.</span>open
-            <span class="apidocSignatureSpan">(database, callback)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.maxmind-db-reader.openSync">module maxmind-db-reader.openSync</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.maxmind-db-reader.openSync.openSync">
-            function <span class="apidocSignatureSpan">maxmind-db-reader.</span>openSync
-            <span class="apidocSignatureSpan">(database)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.maxmind-db-reader.toString">module maxmind-db-reader.toString</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.maxmind-db-reader.toString.toString">
-            function <span class="apidocSignatureSpan">maxmind-db-reader.</span>toString
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
 </ol></div>
 
 <div class="apidocSectionDiv">
@@ -864,37 +816,6 @@ console.log(geodata);
 ```
 
 ## Mixed (Sync init, Async request)
-...</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.maxmind-db-reader.toString" id="apidoc.element.maxmind-db-reader.toString">
-        function <span class="apidocSignatureSpan">maxmind-db-reader.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">toString = function () {
-    return text;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-        if (err) {
-            return callback(err);
-        }
-        map[key] = tmp[0];
-        offset = tmp[1];
-        if (i++ &#x3c; size) {
-            tmp = that.decodeSync(offset);
-            key = tmp[0].<span class="apidocCodeKeywordSpan">toString</span>();
-            that.decode(tmp[1], cb, i % 20 === 0);
-        } else {
-            callback(null, [map, offset]);
-        }
-    };
-if (size === 0) return callback(null, [{}, offset]);
-tmp = that.decodeSync(offset);
 ...</pre></li>
     </ul>
 
@@ -2685,123 +2606,6 @@ var pointer = this.findAddressInTree(ipAddress);
 if (pointer === 0) {
     process.nextTick(function () {
         callback(null, null);
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.maxmind-db-reader.open" id="apidoc.module.maxmind-db-reader.open">module maxmind-db-reader.open</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.maxmind-db-reader.open.open" id="apidoc.element.maxmind-db-reader.open.open">
-        function <span class="apidocSignatureSpan">maxmind-db-reader.</span>open
-        <span class="apidocSignatureSpan">(database, callback)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function openAsync(database, callback) {
-    Reader.open(database, function(err, reader){
-        if(err){
-            return callback(err);
-        }
-        var mmdbreader = MaxmindDBReader();
-        mmdbreader.reader = reader;
-        callback(null,mmdbreader);
-    });
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-
-# node-maxmind-db
-
-This is the pure Node API for reading MaxMind DB files. MaxMind DB is a binary file format that stores data indexed by IP address
- subnets (IPv4 or IPv6).
-
-# WARNING
-
-* `.<span class="apidocCodeKeywordSpan">open</span>(Sync)` needs to be called once before abusing `.getGeoData(Sync)`
-* this is version 0.1.0! the API is not compitable with 0.0.*
-* Most IP&#x27;s don&#x27;t seem to have city data in the GeoLite2 City database. Only american cities are present, if your IP is
- american but not returning a city try to replace the last number of your IP by a 0 (only with a IPv4 address. for IPv6 address
-it doesn&#x27;t seem to work).
-
-# Install
-
-npm i maxmind-db-reader
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.maxmind-db-reader.openSync" id="apidoc.module.maxmind-db-reader.openSync">module maxmind-db-reader.openSync</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.maxmind-db-reader.openSync.openSync" id="apidoc.element.maxmind-db-reader.openSync.openSync">
-        function <span class="apidocSignatureSpan">maxmind-db-reader.</span>openSync
-        <span class="apidocSignatureSpan">(database)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function openSync(database) {
-    var mmdbreader = MaxmindDBReader();
-    mmdbreader.reader = Reader.openSync(database);
-    return mmdbreader;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-```
-
-## Sync
-```javascript
-// require the db reader
-var mmdbreader = require(&#x27;maxmind-db-reader&#x27;);
-//  open database
-var countries = mmdbreader.<span class="apidocCodeKeywordSpan">openSync</span>(&#x27;./countries.mmdb&#x27;);
-// get geodata
-var geodata = countries.getGeoDataSync(&#x27;128.101.101.101&#x27;);
-// log data :D
-console.log(geodata);
-```
-
-## Mixed (Sync init, Async request)
-...</pre></li>
-    </ul>
-
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.maxmind-db-reader.toString" id="apidoc.module.maxmind-db-reader.toString">module maxmind-db-reader.toString</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.maxmind-db-reader.toString.toString" id="apidoc.element.maxmind-db-reader.toString.toString">
-        function <span class="apidocSignatureSpan">maxmind-db-reader.</span>toString
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">function toString() { [native code] }</pre></li>
-    <li>example usage<pre class="apidocCodePre">...
-        if (err) {
-            return callback(err);
-        }
-        map[key] = tmp[0];
-        offset = tmp[1];
-        if (i++ &#x3c; size) {
-            tmp = that.decodeSync(offset);
-            key = tmp[0].<span class="apidocCodeKeywordSpan">toString</span>();
-            that.decode(tmp[1], cb, i % 20 === 0);
-        } else {
-            callback(null, [map, offset]);
-        }
-    };
-if (size === 0) return callback(null, [{}, offset]);
-tmp = that.decodeSync(offset);
 ...</pre></li>
     </ul>
 
