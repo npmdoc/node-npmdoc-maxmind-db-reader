@@ -1,6 +1,6 @@
 # npmdoc-maxmind-db-reader
 
-#### api documentation for  [maxmind-db-reader (v0.2.1)](https://github.com/PaddeK/node-maxmind-db#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-maxmind-db-reader.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-maxmind-db-reader) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-maxmind-db-reader.svg)](https://travis-ci.org/npmdoc/node-npmdoc-maxmind-db-reader)
+#### basic api documentation for  [maxmind-db-reader (v0.2.1)](https://github.com/PaddeK/node-maxmind-db#readme)  [![npm package](https://img.shields.io/npm/v/npmdoc-maxmind-db-reader.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-maxmind-db-reader) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-maxmind-db-reader.svg)](https://travis-ci.org/npmdoc/node-npmdoc-maxmind-db-reader)
 
 #### This is the pure Node API for reading MaxMind DB files. MaxMind DB is a binary file format that stores data indexed by IP address subnets (IPv4 or IPv6).
 
