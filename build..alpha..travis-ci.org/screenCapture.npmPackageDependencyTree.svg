@@ -5,7 +5,7 @@
 <tspan x="10" y="42"></tspan>
 <tspan x="10" y="58">node_modules</tspan>
 <tspan x="10" y="74">└─┬ maxmind-db-reader@0.2.1 </tspan>
-<tspan x="10" y="90">  ├── big-integer@1.6.20 </tspan>
+<tspan x="10" y="90">  ├── big-integer@1.6.22 </tspan>
 <tspan x="10" y="106">  └─┬ ip-address@4.0.0 </tspan>
 <tspan x="10" y="122">    ├─┬ cli@0.6.6 </tspan>
 <tspan x="10" y="138">    │ ├── exit@0.1.2 </tspan>

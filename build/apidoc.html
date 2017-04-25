@@ -766,23 +766,21 @@
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+function MaxmindDBReader() {
+	// allow creation without &#x27;new&#x27; keyword
+	if (!(this instanceof MaxmindDBReader))
+		return new MaxmindDBReader();
+}
 
-# node-maxmind-db
-
-This is the pure Node API for reading MaxMind DB files. MaxMind DB is a binary file format that stores data indexed by IP address
- subnets (IPv4 or IPv6).
-
-# WARNING
-
-* `.<span class="apidocCodeKeywordSpan">open</span>(Sync)` needs to be called once before abusing `.getGeoData(Sync)`
-* this is version 0.1.0! the API is not compitable with 0.0.*
-* Most IP&#x27;s don&#x27;t seem to have city data in the GeoLite2 City database. Only american cities are present, if your IP is
- american but not returning a city try to replace the last number of your IP by a 0 (only with a IPv4 address. for IPv6 address
-it doesn&#x27;t seem to work).
-
-# Install
-
-npm i maxmind-db-reader
+MaxmindDBReader.open = function openAsync(database, callback) {
+Reader.<span class="apidocCodeKeywordSpan">open</span>(database, function(err, reader){
+    if(err){
+        return callback(err);
+    }
+    var mmdbreader = MaxmindDBReader();
+    mmdbreader.reader = reader;
+    callback(null,mmdbreader);
+});
 ...</pre></li>
     </ul>
 
@@ -801,21 +799,20 @@ npm i maxmind-db-reader
     return mmdbreader;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-```
+        mmdbreader.reader = reader;
+        callback(null,mmdbreader);
+    });
+};
 
-## Sync
-```javascript
-// require the db reader
-var mmdbreader = require(&#x27;maxmind-db-reader&#x27;);
-//  open database
-var countries = mmdbreader.<span class="apidocCodeKeywordSpan">openSync</span>(&#x27;./countries.mmdb&#x27;);
-// get geodata
-var geodata = countries.getGeoDataSync(&#x27;128.101.101.101&#x27;);
-// log data :D
-console.log(geodata);
-```
+MaxmindDBReader.openSync = function openSync(database) {
+    var mmdbreader = MaxmindDBReader();
+    mmdbreader.reader = Reader.<span class="apidocCodeKeywordSpan">openSync</span>(database);
+    return mmdbreader;
+};
 
-## Mixed (Sync init, Async request)
+MaxmindDBReader.prototype.getGeoData = function getGeoData(ipAddress, callback) {
+    this.reader.get(ipAddress, callback);
+};
 ...</pre></li>
     </ul>
 
@@ -2251,23 +2248,21 @@ var reader = new Reader();
     });
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+function MaxmindDBReader() {
+	// allow creation without &#x27;new&#x27; keyword
+	if (!(this instanceof MaxmindDBReader))
+		return new MaxmindDBReader();
+}
 
-# node-maxmind-db
-
-This is the pure Node API for reading MaxMind DB files. MaxMind DB is a binary file format that stores data indexed by IP address
- subnets (IPv4 or IPv6).
-
-# WARNING
-
-* `.<span class="apidocCodeKeywordSpan">open</span>(Sync)` needs to be called once before abusing `.getGeoData(Sync)`
-* this is version 0.1.0! the API is not compitable with 0.0.*
-* Most IP&#x27;s don&#x27;t seem to have city data in the GeoLite2 City database. Only american cities are present, if your IP is
- american but not returning a city try to replace the last number of your IP by a 0 (only with a IPv4 address. for IPv6 address
-it doesn&#x27;t seem to work).
-
-# Install
-
-npm i maxmind-db-reader
+MaxmindDBReader.open = function openAsync(database, callback) {
+Reader.<span class="apidocCodeKeywordSpan">open</span>(database, function(err, reader){
+    if(err){
+        return callback(err);
+    }
+    var mmdbreader = MaxmindDBReader();
+    mmdbreader.reader = reader;
+    callback(null,mmdbreader);
+});
 ...</pre></li>
     </ul>
 
@@ -2294,21 +2289,20 @@ npm i maxmind-db-reader
     return reader;
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-```
+        mmdbreader.reader = reader;
+        callback(null,mmdbreader);
+    });
+};
 
-## Sync
-```javascript
-// require the db reader
-var mmdbreader = require(&#x27;maxmind-db-reader&#x27;);
-//  open database
-var countries = mmdbreader.<span class="apidocCodeKeywordSpan">openSync</span>(&#x27;./countries.mmdb&#x27;);
-// get geodata
-var geodata = countries.getGeoDataSync(&#x27;128.101.101.101&#x27;);
-// log data :D
-console.log(geodata);
-```
+MaxmindDBReader.openSync = function openSync(database) {
+    var mmdbreader = MaxmindDBReader();
+    mmdbreader.reader = Reader.<span class="apidocCodeKeywordSpan">openSync</span>(database);
+    return mmdbreader;
+};
 
-## Mixed (Sync init, Async request)
+MaxmindDBReader.prototype.getGeoData = function getGeoData(ipAddress, callback) {
+    this.reader.get(ipAddress, callback);
+};
 ...</pre></li>
     </ul>
 
